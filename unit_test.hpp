@@ -38,9 +38,9 @@
 #define TEST(NAME, CODE) \
     class Tmp##NAME { \
     public: \
-        Tmp##NAME() { UnitTest::instance().registeredFunctions.emplace_back(TestCase{#NAME, [&] { CODE return true; }, __FILE__, __LINE__}); } \
+        inline Tmp##NAME() { UnitTest::instance().registeredFunctions.emplace_back(TestCase{#NAME, [&] { CODE return true; }, __FILE__, __LINE__}); } \
     };\
-    Tmp##NAME test##NAME;\
+    inline Tmp##NAME test##NAME;\
 
 
 // https://stackoverflow.com/a/2616912
